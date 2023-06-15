@@ -9,7 +9,6 @@ import "./Agents.css";
 const Agents: FC = () => {
   const [agents, setAgents] = useState<IAgent[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isOne, setisOne] = useState(true);
 
   let { id }: any = useParams();
   let agentFound;
