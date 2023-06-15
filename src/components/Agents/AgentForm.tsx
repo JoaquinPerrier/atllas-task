@@ -34,10 +34,11 @@ const AgentForm: FC<{}> = () => {
           console.log(error);
         });
       setAgent(emptyAgent);
-      alert("SE GUARDO EL NUEVO AGENTE");
     }
 
     createNewAgent();
+
+    window.location.reload();
   }
 
   function handleClick() {
