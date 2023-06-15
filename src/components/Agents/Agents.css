@@ -1,6 +1,7 @@
 .agents {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .category {
@@ -30,4 +31,15 @@
 
 .category button {
   margin: 0.5rem;
+}
+
+#title {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 2rem 0;
+  text-align: center;
+  background: #9442ff;
+  border-radius: 8px;
+  color: white;
+  width: 30%;
 }

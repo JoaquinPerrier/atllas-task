@@ -40,24 +40,28 @@ const Agents: FC = () => {
 
   return (
     <>
-      <div className="category">
-        <h5>Practice area:</h5>
-        <select onChange={changeCategory} ref={inputRef}>
-          {categories ? (
-            <>
-              <option value=""></option>
-              {categories.map((area) => (
-                <option value={area} key={0}>
-                  {area}
-                </option>
-              ))}
-            </>
-          ) : (
-            <option value="Default">Default</option>
-          )}
-        </select>
-        <button onClick={clearCategory}>See all agents!</button>
-      </div>
+      {id ? (
+        <h1 id="title">AGENT SELECTED:</h1>
+      ) : (
+        <div className="category">
+          <h5>Practice area:</h5>
+          <select onChange={changeCategory} ref={inputRef}>
+            {categories ? (
+              <>
+                <option value=""></option>
+                {categories.map((area) => (
+                  <option value={area} key={0}>
+                    {area}
+                  </option>
+                ))}
+              </>
+            ) : (
+              <option value="Default">Default</option>
+            )}
+          </select>
+          <button onClick={clearCategory}>See all agents!</button>
+        </div>
+      )}
 
       <div className="agents">
         {agentFound ? (

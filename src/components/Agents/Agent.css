@@ -6,7 +6,7 @@
   display: inline-flex;
   flex-direction: column;
   text-align: center;
-  width: 359px;
+  width: 20%;
   margin-bottom: 112px;
 }
 
@@ -55,7 +55,6 @@ footer {
   color: white;
   display: flex;
   flex-direction: column;
-  height: 122px;
   justify-content: center;
 }
 
