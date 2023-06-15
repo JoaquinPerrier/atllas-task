@@ -13,9 +13,30 @@ app.get("/agents", async (req, res, next) => {
 
 app.post("/agents", async (req, res) => {
   try {
-    //let { firstName, lastName } = req.body;
-    console.log(req.body);
-    return "Ready pal ranked";
+    let {
+      firstName,
+      lastName,
+      photoUrl,
+      agentLicence,
+      address,
+      practiceAreas,
+      aboutMe,
+    } = req.body;
+
+    const newAgent = await Agent.create({
+      firstName,
+      lastName,
+      photoUrl,
+      agentLicence,
+      address,
+      practiceAreas,
+      aboutMe,
+    });
+
+    console.log("Le entró?");
+
+    const agents = await Agent.findAll();
+    return res.json(agents);
   } catch (err) {
     res.status(401).send({ message: err.message });
   }
