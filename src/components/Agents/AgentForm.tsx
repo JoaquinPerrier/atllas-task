@@ -8,25 +8,25 @@ const AgentForm: FC<{}> = () => {
       <h2>Add a new agent!</h2>
       <form action="">
         <label htmlFor="firstName">First name:</label>
-        <input type="text" id="firstName" />
+        <input type="text" id="firstName" required />
 
         <label htmlFor="lastName">Last name:</label>
-        <input type="text" id="lastName" />
+        <input type="text" id="lastName" required />
 
         <label htmlFor="photoUrl">Photo URL:</label>
         <input type="text" id="photoUrl" />
 
         <label htmlFor="agentLicence">Agent licence:</label>
-        <input type="text" id="agentLicence" />
+        <input type="text" id="agentLicence" required />
 
         <label htmlFor="address">Adress:</label>
-        <input type="text" id="address" />
+        <input type="text" id="address" required />
 
         <label htmlFor="practiceAreas">Practice area:</label>
         <input type="text" id="practiceAreas" />
 
         <label htmlFor="aboutMe">About me:</label>
-        <input type="text" id="aboutMe" />
+        <textarea id="aboutMe" />
 
         <button>Add!</button>
       </form>
