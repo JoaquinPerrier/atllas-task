@@ -23,6 +23,10 @@ app.post("/agents", async (req, res) => {
       aboutMe,
     } = req.body;
 
+    if (!firstName || !lastName || !agentLicence || !address) {
+      throw Error("Error: missing params");
+    }
+
     const newAgent = await Agent.create({
       firstName,
       lastName,
@@ -38,7 +42,7 @@ app.post("/agents", async (req, res) => {
     const agents = await Agent.findAll();
     return res.json(agents);
   } catch (err) {
-    res.status(401).send({ message: err.message });
+    res.status(501).send({ message: err.message });
   }
 });
 
