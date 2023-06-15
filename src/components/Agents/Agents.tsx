@@ -3,10 +3,19 @@ import { useState, useEffect } from "react";
 import Agent from "./Agent";
 import { IAgent } from "../../types/Agent";
 import axios from "axios";
-import './Agents.css'
+import { useParams } from "react-router-dom";
+import "./Agents.css";
 
 const Agents: FC = () => {
   const [agents, setAgents] = useState<IAgent[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [isOne, setisOne] = useState(true);
+
+  let { id }: any = useParams();
+  let agentFound;
+  if (id || !loading) {
+    agentFound = agents[id - 1];
+  }
 
   useEffect(() => {
     async function fetchInitialData() {
@@ -14,13 +23,16 @@ const Agents: FC = () => {
       setAgents(response.data);
     }
     fetchInitialData();
+    setLoading(false);
   }, []);
 
   return (
     <div className="agents">
-      {agents.map((agent) => (
-        <Agent key={agent.id} agent={agent} />
-      ))}
+      {agentFound ? (
+        <Agent key={agentFound.id} agent={agentFound} />
+      ) : (
+        agents.map((agent) => <Agent key={agent.id} agent={agent} />)
+      )}
     </div>
   );
 };
