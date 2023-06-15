@@ -27,7 +27,7 @@ app.post("/agents", async (req, res) => {
       throw Error("Error: missing params");
     }
 
-    const newAgent = await Agent.create({
+    await Agent.create({
       firstName,
       lastName,
       photoUrl,
@@ -36,8 +36,6 @@ app.post("/agents", async (req, res) => {
       practiceAreas,
       aboutMe,
     });
-
-    console.log("Le entró?");
 
     const agents = await Agent.findAll();
     return res.json(agents);
